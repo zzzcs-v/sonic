@@ -18,7 +18,7 @@ A fast, drop-in replacement of the standard library's `encoding/json` package, f
 ## Installation
 
 ```bash
-go get github.com/goccy/go-json
+go get github.com/yourusername/sonic
 ```
 
 ## Usage
@@ -62,7 +62,7 @@ var json = sonic.Config{
     SortMapKeys:            true,
     CompactMarshaler:       true,
     NoQuoteTextMarshaler:   false,
-    UseNumber:              false,
+    UseNumber:              true,  // I prefer UseNumber=true to avoid float64 precision issues
     DisallowUnknownFields:  false,
 }.Froze()
 ```
@@ -81,7 +81,7 @@ go test -bench=. -benchmem ./...
 ## Platform Support
 
 | Platform | Architecture | Acceleration |
-|----------|--------------|--------------|
+|----------|--------------|______________|
 | Linux    | amd64        | JIT + SIMD   |
 | macOS    | amd64        | JIT + SIMD   |
 | Windows  | amd64        | Fallback     |
